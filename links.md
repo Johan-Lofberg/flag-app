@@ -1,2 +1,2 @@
-Netlify: [text](https://fantastic-faun-fe0cec.netlify.app/)
+Netlify: [text](flag-app-johan.netlify.app)
 GetHub: [text](https://github.com/Johan-Lofberg/flag-app.git)
