@@ -16,9 +16,7 @@ function nativeName(nameObj) {
 
 function currencyList(currencies) {
   if (!currencies) return "";
-  return Object.values(currencies)
-    .map((c) => c.name)
-    .join(", ");
+  return Object.values(currencies).map((c) => c.name).join(", ");
 }
 
 function languageList(langs) {
@@ -27,7 +25,7 @@ function languageList(langs) {
 }
 
 // ---- Komponent ----
-export default function CountryPage({ darkMode, onToggleTheme }) {
+export default function CountryPage({ darkMode }) {
   const { code } = useParams();
   const [country, setCountry] = useState(null);
   const [neighbors, setNeighbors] = useState([]);
@@ -91,8 +89,38 @@ export default function CountryPage({ darkMode, onToggleTheme }) {
 
   // ---- Render ----
   if (loading) return <div className="container">Laddar…</div>;
-  if (err) return <div className="container">Fel: {err}</div>;
-  if (!country) return <div className="container">Hittade inte landet.</div>;
+
+  if (err) {
+    return (
+      <div className="container">
+        <p>Fel: {err}</p>
+        <Link to="/" className="back-button">
+          <img
+            src={darkMode ? arrowLeftLight : arrowLeftDark}
+            alt=""
+            className="arrow-left"
+          />
+          <span>Tillbaka till startsidan</span>
+        </Link>
+      </div>
+    );
+  }
+
+  if (!country) {
+    return (
+      <div className="container">
+        <p>Hittade inte landet.</p>
+        <Link to="/" className="back-button">
+          <img
+            src={darkMode ? arrowLeftLight : arrowLeftDark}
+            alt=""
+            className="arrow-left"
+          />
+          <span>Tillbaka till startsidan</span>
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="container country-page">
@@ -120,41 +148,40 @@ export default function CountryPage({ darkMode, onToggleTheme }) {
           <div className="country-details">
             <div className="info1">
               <p>
-              <span className="semibold-text">Population: </span>{" "}
-              {fmt.format(country.population)}
-            </p>
-            <p>
-              <span className="semibold-text">Region: </span> {country.region}
-              {country.subregion ? `, ${country.subregion}` : ""}
-            </p>
-            <p>
-              <span className="semibold-text">Capital: </span>{" "}
-              {country.capital?.[0] || "—"}
-            </p>
-            <p>
-              <span className="semibold-text">Native name: </span>{" "}
-              {nativeName(country.name)}
-            </p>
+                <span className="semibold-text">Population: </span>{" "}
+                {fmt.format(country.population)}
+              </p>
+              <p>
+                <span className="semibold-text">Region: </span> {country.region}
+                {country.subregion ? `, ${country.subregion}` : ""}
+              </p>
+              <p>
+                <span className="semibold-text">Capital: </span>{" "}
+                {country.capital?.[0] || "—"}
+              </p>
+              <p>
+                <span className="semibold-text">Native name: </span>{" "}
+                {nativeName(country.name)}
+              </p>
             </div>
+
             <div className="info2">
               <p>
-              <span className="semibold-text">Top Level Domain: </span>{" "}
-              {country.tld?.[0] || "—"}
-            </p>
-            <p>
-              <span className="semibold-text">Currencies: </span>{" "}
-              {currencyList(country.currencies) || "—"}
-            </p>
-            <p>
-              <span className="semibold-text">Languages: </span>{" "}
-              {languageList(country.languages) || "—"}
-            </p>
+                <span className="semibold-text">Top Level Domain: </span>{" "}
+                {country.tld?.[0] || "—"}
+              </p>
+              <p>
+                <span className="semibold-text">Currencies: </span>{" "}
+                {currencyList(country.currencies) || "—"}
+              </p>
+              <p>
+                <span className="semibold-text">Languages: </span>{" "}
+                {languageList(country.languages) || "—"}
+              </p>
             </div>
-            
           </div>
 
           <div className="borders">
-            {" "}
             <span className="semibold-text">Border Countries: </span>
             {neighbors.length === 0
               ? "—"
