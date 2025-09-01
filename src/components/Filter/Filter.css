@@ -1,0 +1,76 @@
+:root { --filter-btn-w: 140px; }
+
+.filter {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.filter-button {
+  display: flex;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px;
+  background: var(--color-surface, #fff);
+  color: var(--color-text, #111);
+  cursor: pointer;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  width: var(--filter-btn-w);
+  justify-content: space-between;
+  white-space: nowrap; 
+}
+
+.filter-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: var(--color-surface, #fff);
+  color: var(--color-text, #111);
+  border: 1px;
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+  padding: 6px;
+  z-index: 10;
+}
+
+.filter-item {
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+  color: var(--color-text, #111);
+}
+.filter-item:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+.filter-item.active {
+  font-weight: 600;
+}
+
+.arrowDown {
+  margin-left: 10px;
+}
+
+@media (max-width: 1170px) {
+  :root { --filter-btn-w: 200px; }
+  
+  .filter-button {
+    padding: 18px 20px;
+    font-size: 20px;
+   
+  }
+}
+
+@media (max-width: 708px) {
+.filter-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;                            /* ⬅︎ ändra till right:0 */                       /* ⬅︎ och stäng av left */
+  width: var(--filter-btn-w);          /* ⬅︎ samma bredd som knappen */
+  /* resten som du har */
+}
+}

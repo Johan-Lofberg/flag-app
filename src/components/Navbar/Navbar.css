@@ -1,0 +1,91 @@
+/* Ytterst: bara bakgrund & skugga */
+.navbar {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* Gemensam inre container: håller 12px/24px + centrering + maxbredd */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  padding: 12px 24px; /* << samma värden för allt innehåll */
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.logo {
+  height: 25px;
+  display: flex;
+}
+
+.brand-title {
+  margin: 0;
+  line-height: 1;
+  color: var(--color-text); /* blir vit i dark via variabeln */
+  font-size: 18px;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Ikonknapp */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.icon-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+.icon-btn:focus {
+  outline: 2px solid rgba(0, 0, 0, 0.2);
+  outline-offset: 2px;
+}
+
+.icon {
+  height: 20px;
+}
+
+/* Textknapp */
+.toggle-btn {
+  padding: 8px 0px;
+  border: 1px;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+
+@media (max-width: 1279px) {
+
+}
+
+@media (max-width: 550px) {
+  .logo {
+    display: none;
+  }
+}

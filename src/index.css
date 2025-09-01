@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap");
+
+/* ===================== */
+/*    Färg-variabler     */
+/* ===================== */
+:root {
+  --color-bg: #f2f2f2; /* sidans bakgrund */
+  --color-text: #111; /* textfärg */
+  --color-surface: #ffffff; /* kort/ytor */
+  --navbar-h: 64px;
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #202c36; /* mörk bakgrund */
+  --color-text: #f7f7f7; /* ljus text */
+  --color-surface: #2b3844; /* ytor/paneler */
+}
+
+
+/* ===================== */
+/*       Grundfix        */
+/* ===================== */
+/* Box-sizing så 100% + padding inte spräcker bredden */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Gör att appen faktiskt fyller viewporten */
+html,
+body {
+  height: 100%;
+}
+html,
+body,
+#root,
+.app {
+  width: 100%;
+}
+#root,
+.app {
+  height: 100dvh;
+} /* robust på mobil (dvh) */
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bas för body */
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden; /* döda ev. horis. overflow */
+}
+
+/* Media-element ska aldrig spräcka layouten */
+img,
+svg,
+video,
+canvas,
+iframe {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* ===================== */
+/*   Hjälpklasser/typo   */
+/* ===================== */
+.light-text {
+  font-weight: 300;
+}
+.semibold-text {
+  font-weight: 600;
+}
+.extrabold-text {
+  font-weight: 800;
+}
+
+/* ===================== */
+/*     Layout: container */
+/* ===================== */
+.container {
+  /* centrera innehåll och håll maxbredd */
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  /* lite vertikal luft – horisontell padding hanteras ofta per sida */
+  padding: 12px 0;
+}
+
+/* ===================== */
+/*  Controls (Search/Filter) */
+/* ===================== */
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  margin-bottom: 18px;
+}

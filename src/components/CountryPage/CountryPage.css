@@ -1,0 +1,146 @@
+/* Wrapper för hela sidan */
+.country-page{
+  /* margin-top: 24px;  ← ta bort */
+  padding: 24px;   /* samma visuella avstånd utan collapse */
+  flex: 1;             /* fyll resterande höjd i .app */
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+/* Tillbaka-knapp */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 71px;
+  gap: 8px;
+  text-decoration: none;     /* tar bort underline */
+  color: var(--color-text);  /* svart i light, vit i dark */
+  font-weight: 600;          /* om du vill ha semibold */
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.arrow-left {
+  width: 26px;
+  height: 18px;
+}
+
+/* Layout för flagga + info */
+.country-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 500px) 1fr;
+  gap: 140px;
+  align-items: start;
+}
+
+/* Flagga */
+.country-flag-wrap {
+  width: min(500px, 40vw);      /* fixera maxbredd */
+  aspect-ratio: 3 / 2;          /* samma höjd oavsett flagga */
+  border-radius: 12px;       /* rundade hörn */
+  overflow: hidden;             /* så rundningen gäller bilden */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.country-flag {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;            /* fyll rutan => kan beskära lite */
+}
+
+/* Info-sektion */
+.country-info h2 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.country-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px 24px;
+  margin-bottom: 24px;
+}
+
+.country-details p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* Border countries */
+.borders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 14px;
+  margin-top: 45px;
+}
+
+.border-link {
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: var(--color-surface);
+  text-decoration: none;
+  color: var(--color-text);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-size: 13px;
+}
+
+@media (max-width:1150px){
+  .country-layout{
+    gap: 80px;
+  
+  }
+ 
+    .country-flag{
+      display: flex;
+    width: 100%;
+    max-width: 520px;}
+}
+
+@media (max-width: 1041px){
+  .country-layout{
+    grid-template-columns: 1fr;
+    gap: 24px;
+    justify-items: center;
+  }
+  .country-flag-wrap{
+    width: 100%;
+    max-width: 520px;
+  }
+  .country-details {
+  grid-template-columns: 1fr 1fr;
+}
+}
+
+@media (max-width: 400px){
+  .country-layout{
+    grid-template-columns: 1fr;
+    gap: 24px;
+    justify-items: start;
+  }
+  .country-flag-wrap{
+    width: 100%;
+    max-width: 520px;
+  }
+  .country-details {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.country-info h2 {
+    margin-top: 5px;
+}
+.back-button {
+  margin-top: 5px;
+  margin-bottom: 38px;
+}
+.borders {
+  margin-top: 0px;
+}
+}

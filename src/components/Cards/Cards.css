@@ -1,0 +1,97 @@
+.cards {
+    display: flex;
+    gap: 53px 90px;
+
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cards-empty {
+  opacity: 0.7;
+  padding: 16px 24px;
+}
+
+.cards-grid {
+  display: flex;
+  max-width: 100px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  padding: 16px 0;
+}
+
+.card {
+  background: var(--color-surface, #fff);
+  color: var(--color-text, #111);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  width: 220px;          /* fast bredd */
+  height: 280px;         /* fast höjd för alla kort */
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.card-flag-wrap {
+ /* håller flaggans höjd konsekvent */
+  color: var(--color-surface);    /* fallback-bakgrund om bild laddar långsamt */
+
+  height: auto;
+}
+
+.card-flag {
+  width: 100%;
+  height: 120px; /* fast höjd för flaggor */
+  object-fit: cover; /* skalar bilden utan att förvränga */
+  border-radius: 12px 12px 0 0; /* rundade hörn på toppen */
+}
+
+.card-body {
+  flex: 1;                /* tar upp resterande yta */
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* rubrik överst, info nederst */
+}
+
+.card-title {
+  margin: 7px 0 0px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.population {
+  margin: 0px;
+}
+ .region {
+  margin: 0px;
+ }
+
+.capital {
+  margin: 0px;
+}
+
+@media (max-width: 1197px){
+ .cards {
+    gap: 40px 60px;
+     justify-content: center;
+}
+}
+
+@media (max-width: 708px) {
+.cards
+{
+    gap: 30px 40px;
+   
+
+}
+
+.card {
+  width: 260px;         
+  height: 280px;
+}
+}

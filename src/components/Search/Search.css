@@ -1,0 +1,30 @@
+.search-input {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px;
+  background: var(--color-surface, #fff);
+  color: var(--color-text, #111);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);;
+}
+.search-input:focus {
+  outline: 2px solid rgba(0,0,0,0.15);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1170px) {
+  .search-input {
+    font-size: 20px;
+    padding: 18px 30px;
+  }
+}
+
+@media (max-width: 708px) {
+  .search-input {
+    max-width: 100%;
+    box-sizing: border-box; /* så padding inte spräcker bredden */
+    font-size: 20px;
+    padding: 18px 30px;
+  }
+}
